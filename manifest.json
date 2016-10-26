@@ -1,0 +1,40 @@
+{
+
+  "manifest_version": 2,
+  "name": "SAP Note Search",
+  "version": "1.0",
+
+
+  "description": "Add action to browser to search SAP Notes more easily",
+  "homepage_url": "http://google.pl",
+  "icons": {
+	"16": "icons/SAP16.png",
+	"32": "icons/SAP32.png",
+    "48": "icons/SAP48.png"
+  },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content_script.js"]
+  }],
+  
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+	"webRequest",
+	"*://*.sap.com/*",
+	"*://launchpad.support.sap.com/*"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/SAP32.png",
+    "default_title": "SAP Note Search",
+    "default_popup": "popup/NoteSearchPopup.html"
+  }
+  
+
+
+}
